@@ -19,6 +19,8 @@
 		7396BD551D077F760054786E /* CoreTelephony.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7396BD541D077F760054786E /* CoreTelephony.framework */; };
 		7396BD571D077F7C0054786E /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7396BD561D077F7C0054786E /* MobileCoreServices.framework */; };
 		7396BD591D077F810054786E /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7396BD581D077F810054786E /* SystemConfiguration.framework */; };
+		7396BD5B1D0785F10054786E /* SDKObserver.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7396BD5A1D0785F10054786E /* SDKObserver.swift */; };
+		7396BD5C1D0785F10054786E /* SDKObserver.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7396BD5A1D0785F10054786E /* SDKObserver.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -62,6 +64,7 @@
 		7396BD541D077F760054786E /* CoreTelephony.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreTelephony.framework; path = System/Library/Frameworks/CoreTelephony.framework; sourceTree = SDKROOT; };
 		7396BD561D077F7C0054786E /* MobileCoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MobileCoreServices.framework; path = System/Library/Frameworks/MobileCoreServices.framework; sourceTree = SDKROOT; };
 		7396BD581D077F810054786E /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
+		7396BD5A1D0785F10054786E /* SDKObserver.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SDKObserver.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -120,6 +123,7 @@
 				7396BD4F1D077B010054786E /* ROXIMITY */,
 				7396BD291D077A700054786E /* Info.plist */,
 				7396BD511D077C380054786E /* SwiftDevStarter-Bridging-Header.h */,
+				7396BD5A1D0785F10054786E /* SDKObserver.swift */,
 			);
 			path = SwiftDevStarter;
 			sourceTree = "<group>";
@@ -272,6 +276,7 @@
 			files = (
 				7396BD201D077A700054786E /* ViewController.swift in Sources */,
 				7396BD1E1D077A700054786E /* AppDelegate.swift in Sources */,
+				7396BD5B1D0785F10054786E /* SDKObserver.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -279,6 +284,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7396BD5C1D0785F10054786E /* SDKObserver.swift in Sources */,
 				7396BD331D077A710054786E /* SwiftDevStarterTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
