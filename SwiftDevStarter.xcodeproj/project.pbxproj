@@ -15,6 +15,10 @@
 		7396BD331D077A710054786E /* SwiftDevStarterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7396BD321D077A710054786E /* SwiftDevStarterTests.swift */; };
 		7396BD4D1D077AFC0054786E /* libROXIMITYSDK.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 7396BD3D1D077AFC0054786E /* libROXIMITYSDK.a */; };
 		7396BD4E1D077AFC0054786E /* ROXIMITYSDK.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 7396BD4C1D077AFC0054786E /* ROXIMITYSDK.bundle */; };
+		7396BD531D077F6F0054786E /* AdSupport.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7396BD521D077F6F0054786E /* AdSupport.framework */; };
+		7396BD551D077F760054786E /* CoreTelephony.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7396BD541D077F760054786E /* CoreTelephony.framework */; };
+		7396BD571D077F7C0054786E /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7396BD561D077F7C0054786E /* MobileCoreServices.framework */; };
+		7396BD591D077F810054786E /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7396BD581D077F810054786E /* SystemConfiguration.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -54,6 +58,10 @@
 		7396BD4B1D077AFC0054786E /* ROXSignalOriginType.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ROXSignalOriginType.h; sourceTree = "<group>"; };
 		7396BD4C1D077AFC0054786E /* ROXIMITYSDK.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = ROXIMITYSDK.bundle; sourceTree = "<group>"; };
 		7396BD511D077C380054786E /* SwiftDevStarter-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "SwiftDevStarter-Bridging-Header.h"; sourceTree = "<group>"; };
+		7396BD521D077F6F0054786E /* AdSupport.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AdSupport.framework; path = System/Library/Frameworks/AdSupport.framework; sourceTree = SDKROOT; };
+		7396BD541D077F760054786E /* CoreTelephony.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreTelephony.framework; path = System/Library/Frameworks/CoreTelephony.framework; sourceTree = SDKROOT; };
+		7396BD561D077F7C0054786E /* MobileCoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MobileCoreServices.framework; path = System/Library/Frameworks/MobileCoreServices.framework; sourceTree = SDKROOT; };
+		7396BD581D077F810054786E /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -61,6 +69,10 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7396BD591D077F810054786E /* SystemConfiguration.framework in Frameworks */,
+				7396BD571D077F7C0054786E /* MobileCoreServices.framework in Frameworks */,
+				7396BD551D077F760054786E /* CoreTelephony.framework in Frameworks */,
+				7396BD531D077F6F0054786E /* AdSupport.framework in Frameworks */,
 				7396BD4D1D077AFC0054786E /* libROXIMITYSDK.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -78,6 +90,10 @@
 		7396BD111D077A700054786E = {
 			isa = PBXGroup;
 			children = (
+				7396BD581D077F810054786E /* SystemConfiguration.framework */,
+				7396BD561D077F7C0054786E /* MobileCoreServices.framework */,
+				7396BD541D077F760054786E /* CoreTelephony.framework */,
+				7396BD521D077F6F0054786E /* AdSupport.framework */,
 				7396BD1C1D077A700054786E /* SwiftDevStarter */,
 				7396BD311D077A710054786E /* SwiftDevStarterTests */,
 				7396BD1B1D077A700054786E /* Products */,
