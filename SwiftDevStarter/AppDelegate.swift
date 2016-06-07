@@ -60,6 +60,48 @@ class AppDelegate: UIResponder, UIApplicationDelegate, ROXIMITYEngineDelegate {
         // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
         ROXIMITYEngine.terminate()
     }
+    
+    func application(application: UIApplication, didFailToRegisterForRemoteNotificationsWithError error: NSError) {
+        ROXIMITYEngine.didFailToRegisterForRemoteNotifications(error)
+    }
+    
+    func application(application: UIApplication, didRegisterForRemoteNotificationsWithDeviceToken deviceToken: NSData) {
+        ROXIMITYEngine.didRegisterForRemoteNotifications(deviceToken)
+    }
+    
+    func application(application: UIApplication, didReceiveRemoteNotification userInfo: [NSObject : AnyObject], fetchCompletionHandler completionHandler: (UIBackgroundFetchResult) -> Void) {
+        
+        let roximityNotification = ROXIMITYEngine.didReceiveRemoteNotification(application, userInfo: userInfo, fetchCompletionHandler: completionHandler)
+        
+        if roximityNotification{
+            print("ROXIMITY Notification received and processed!")
+        }else{
+            //Handle remote fetch here
+        }
+    }
+    
+    func application(application: UIApplication, didReceiveRemoteNotification userInfo: [NSObject : AnyObject]) {
+        
+        let roximityNotification = ROXIMITYEngine.didReceiveRemoteNotification(application, userInfo: userInfo)
+        
+        if roximityNotification{
+            print("ROXIMITY Notification received and processed!")
+        }else{
+            //Handle remote fetch here
+        }
+    }
+    
+    func application(application: UIApplication, didReceiveLocalNotification notification: UILocalNotification) {
+        let roximityNotification = ROXIMITYEngine.didReceiveLocalNotification(application, notification: notification)
+        
+        if roximityNotification{
+            print("ROXIMITY Notification received and processed!")
+        }else{
+            //Handle remote fetch here
+        }
+    }
+    
+    
 
 
 }
