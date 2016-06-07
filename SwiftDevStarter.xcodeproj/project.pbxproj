@@ -53,6 +53,7 @@
 		7396BD4A1D077AFC0054786E /* ROXSignalEventType.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ROXSignalEventType.h; sourceTree = "<group>"; };
 		7396BD4B1D077AFC0054786E /* ROXSignalOriginType.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ROXSignalOriginType.h; sourceTree = "<group>"; };
 		7396BD4C1D077AFC0054786E /* ROXIMITYSDK.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = ROXIMITYSDK.bundle; sourceTree = "<group>"; };
+		7396BD511D077C380054786E /* SwiftDevStarter-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "SwiftDevStarter-Bridging-Header.h"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -102,6 +103,7 @@
 				7396BD261D077A700054786E /* LaunchScreen.storyboard */,
 				7396BD4F1D077B010054786E /* ROXIMITY */,
 				7396BD291D077A700054786E /* Info.plist */,
+				7396BD511D077C380054786E /* SwiftDevStarter-Bridging-Header.h */,
 			);
 			path = SwiftDevStarter;
 			sourceTree = "<group>";
@@ -385,6 +387,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.roximity.SwiftDevStarter;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "$(PROJECT_DIR)/SwiftDevStarter/SwiftDevStarter-Bridging-Header.h";
 			};
 			name = Debug;
 		};
@@ -400,6 +403,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.roximity.SwiftDevStarter;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "$(PROJECT_DIR)/SwiftDevStarter/SwiftDevStarter-Bridging-Header.h";
 			};
 			name = Release;
 		};
