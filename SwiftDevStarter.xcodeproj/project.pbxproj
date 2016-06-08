@@ -11,6 +11,10 @@
 		736B4FDC1D087E9A00DDFF89 /* ROXEventTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 736B4FD91D087E9A00DDFF89 /* ROXEventTableViewCell.swift */; };
 		736B4FDD1D087E9A00DDFF89 /* ROXEventTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 736B4FDA1D087E9A00DDFF89 /* ROXEventTableViewCell.xib */; };
 		736B4FDE1D087E9A00DDFF89 /* ROXEventTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 736B4FDA1D087E9A00DDFF89 /* ROXEventTableViewCell.xib */; };
+		736B4FE01D08A2E400DDFF89 /* ROXIMITYEventColors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 736B4FDF1D08A2E400DDFF89 /* ROXIMITYEventColors.swift */; };
+		736B4FE11D08A2E400DDFF89 /* ROXIMITYEventColors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 736B4FDF1D08A2E400DDFF89 /* ROXIMITYEventColors.swift */; };
+		736B4FE31D08AE6900DDFF89 /* EventHistoryUpdateResponder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 736B4FE21D08AE6900DDFF89 /* EventHistoryUpdateResponder.swift */; };
+		736B4FE41D08AE6900DDFF89 /* EventHistoryUpdateResponder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 736B4FE21D08AE6900DDFF89 /* EventHistoryUpdateResponder.swift */; };
 		7396BD1E1D077A700054786E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7396BD1D1D077A700054786E /* AppDelegate.swift */; };
 		7396BD201D077A700054786E /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7396BD1F1D077A700054786E /* ViewController.swift */; };
 		7396BD231D077A700054786E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7396BD211D077A700054786E /* Main.storyboard */; };
@@ -40,6 +44,8 @@
 /* Begin PBXFileReference section */
 		736B4FD91D087E9A00DDFF89 /* ROXEventTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ROXEventTableViewCell.swift; sourceTree = "<group>"; };
 		736B4FDA1D087E9A00DDFF89 /* ROXEventTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ROXEventTableViewCell.xib; sourceTree = "<group>"; };
+		736B4FDF1D08A2E400DDFF89 /* ROXIMITYEventColors.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ROXIMITYEventColors.swift; sourceTree = "<group>"; };
+		736B4FE21D08AE6900DDFF89 /* EventHistoryUpdateResponder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventHistoryUpdateResponder.swift; sourceTree = "<group>"; };
 		7396BD1A1D077A700054786E /* SwiftDevStarter.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SwiftDevStarter.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7396BD1D1D077A700054786E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		7396BD1F1D077A700054786E /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -132,6 +138,8 @@
 				7396BD5A1D0785F10054786E /* SDKObserver.swift */,
 				736B4FD91D087E9A00DDFF89 /* ROXEventTableViewCell.swift */,
 				736B4FDA1D087E9A00DDFF89 /* ROXEventTableViewCell.xib */,
+				736B4FDF1D08A2E400DDFF89 /* ROXIMITYEventColors.swift */,
+				736B4FE21D08AE6900DDFF89 /* EventHistoryUpdateResponder.swift */,
 			);
 			path = SwiftDevStarter;
 			sourceTree = "<group>";
@@ -285,7 +293,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				736B4FDB1D087E9A00DDFF89 /* ROXEventTableViewCell.swift in Sources */,
+				736B4FE01D08A2E400DDFF89 /* ROXIMITYEventColors.swift in Sources */,
 				7396BD201D077A700054786E /* ViewController.swift in Sources */,
+				736B4FE31D08AE6900DDFF89 /* EventHistoryUpdateResponder.swift in Sources */,
 				7396BD1E1D077A700054786E /* AppDelegate.swift in Sources */,
 				7396BD5B1D0785F10054786E /* SDKObserver.swift in Sources */,
 			);
@@ -296,6 +306,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				7396BD5C1D0785F10054786E /* SDKObserver.swift in Sources */,
+				736B4FE41D08AE6900DDFF89 /* EventHistoryUpdateResponder.swift in Sources */,
+				736B4FE11D08A2E400DDFF89 /* ROXIMITYEventColors.swift in Sources */,
 				7396BD331D077A710054786E /* SwiftDevStarterTests.swift in Sources */,
 				736B4FDC1D087E9A00DDFF89 /* ROXEventTableViewCell.swift in Sources */,
 			);

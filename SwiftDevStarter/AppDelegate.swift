@@ -27,7 +27,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, ROXIMITYEngineDelegate {
         engineOptions[kROXEngineOptionsStartLocationDeactivated] = false
         
         
-        ROXIMITYEngine.startWithLaunchOptions(launchOptions, engineOptions: engineOptions, applicationId: "YOUR_APP_ID_HERE", andEngineDelegate: self)
+        ROXIMITYEngine.startWithLaunchOptions(launchOptions, engineOptions: engineOptions, applicationId: "5b64d0b806ea4c4bb3c5cd527305aa09", andEngineDelegate: self)
         
         return true
     }

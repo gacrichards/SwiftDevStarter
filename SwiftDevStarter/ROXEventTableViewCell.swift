@@ -10,6 +10,13 @@ import UIKit
 
 class ROXEventTableViewCell: UITableViewCell {
 
+    @IBOutlet weak var topBannerView: UIView!
+    @IBOutlet weak var bottomBannerView: UIView!
+    @IBOutlet weak var topLevelTitle: UILabel!
+    @IBOutlet weak var eventDetailLine1: UILabel!
+    @IBOutlet weak var eventDetailLine2: UILabel!
+    @IBOutlet weak var dateLabel: UILabel!
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
@@ -17,8 +24,15 @@ class ROXEventTableViewCell: UITableViewCell {
 
     override func setSelected(selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
-
         // Configure the view for the selected state
     }
     
+    func setWithROXEventInfo(event:ROXEventInfo){
+        self.topLevelTitle.text = event.getEventDescription()
+        self.eventDetailLine1.text = event.getEventDetailDescription1()
+        self.eventDetailLine2.text = event.getEventDetailDescription2()
+        self.dateLabel.text = event.getFormattedDateString()
+        self.topBannerView.backgroundColor = event.getEventColor()
+        self.bottomBannerView.backgroundColor = event.getEventColor()
+    }
 }
