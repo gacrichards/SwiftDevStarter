@@ -13,9 +13,9 @@
 
 -(instancetype) initWithDictionary:(NSDictionary *)builderDict;
 
--(NSString *)getSignalName;
--(NSString *)getSignalId;
--(NSSet *)getSignalTags;
--(ROXSignalOriginType) getSignalType;
+-(NSString *)getName;
+-(NSString *)getId;
+-(NSSet *)getTags;
+-(ROXSignalOriginType)getType;
 
 @end

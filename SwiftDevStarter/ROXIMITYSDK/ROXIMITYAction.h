@@ -22,7 +22,7 @@
 -(NSString *)getUrl;
 -(NSSet *)getTags;
 -(NSTimeInterval)getFrequency;
--(NSDate *)getActiveStartDateUTC;
--(NSDate *)getExpiresDateUTC;
+-(NSDate *)getActiveStartDate;
+-(NSDate *)getExpiresDate;
 
 @end

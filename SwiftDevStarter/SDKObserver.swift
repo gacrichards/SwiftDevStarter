@@ -116,7 +116,7 @@ extension ROXEventInfo{
     
     private func getSignalColor()->UIColor{
         let signal = self.getROXIMITYSignal()
-        switch signal.getSignalType() {
+        switch signal.getType() {
         case .Beacon:
             return ROXIMITYEventColors.orange()
         case .Geofence:
@@ -138,21 +138,21 @@ extension ROXEventInfo{
     
     private func createSignalDrivenDetail1()->String{
         let signal = self.getROXIMITYSignal()
-        return "SIGNAL: "+signal.getSignalName()
+        return "SIGNAL: "+signal.getName()
     }
     
     private func createActionDrivenDetail2()->String{
         
         let signal = self.getROXIMITYSignal()
         let signalTypeString = signalEventTypeString(signal)
-        let signalName = signal.getSignalName() ?? ""
+        let signalName = signal.getName() ?? ""
         return "TRIGGER: "+signalTypeString+" - "+signalName
 
     }
     
     private func createSignalDrivenDetail2()->String{
         let signal = self.getROXIMITYSignal()
-        let signalTags = signal.getSignalTags()
+        let signalTags = signal.getTags()
         if signalTags.count > 0{
             return "TAGS: "+signalTags.map({"\($0)"}).joinWithSeparator(", ")
         }
@@ -207,7 +207,7 @@ extension ROXEventInfo{
     }
     
     private func signalEventTypeString(signal: ROXIMITYSignal)->String{
-        switch signal.getSignalType() {
+        switch signal.getType() {
         case ROXSignalOriginType.Beacon:
             return "Beacon"
         case ROXSignalOriginType.Geofence:
