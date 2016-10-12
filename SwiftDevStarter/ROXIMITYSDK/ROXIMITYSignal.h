@@ -17,5 +17,6 @@
 -(NSString *)getId;
 -(NSSet *)getTags;
 -(ROXSignalOriginType)getType;
+-(NSString *)getTypeDescription;
 
 @end

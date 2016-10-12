@@ -35,21 +35,6 @@
 @interface ROXIMITYEngine : NSObject
 
 #pragma mark - Application State
-
-/**
- * @warning This method is deprecated, please use startWithLaunchOptions:engineOptions:andApplicationId
- * @see startWithLaunchOptions:engineOptions:andApplicationId
- */
-+(void) startWithLaunchOptions:(NSDictionary *) launchOptions andEngineOptions:(NSDictionary *)engineOptions __attribute__((deprecated("use startWithLaunchOptions:engineOptions:applicationId:andEngineDelegate instead")));
-
-/**
- * @brief Application delegate item that communicates the application's launch and turns on ROXIMITY API functionality .
- * @details The startWithLaunchOption method is passed to the ROXIMITYEngine at the start of the application in the didFinishLaunchingWithOptions application delegate hook.
- * @param launchOptions dictionary of launch options to start the ROXIMITY Engine with
- * @param applicationId the application id string corresponding to your application found in the ROXIMITY Web Dashboard
- */
-+(void) startWithLaunchOptions:(NSDictionary *)launchOptions engineOptions:(NSDictionary *)engineOptions andApplicationId:(NSString *)applicationId  __attribute__((deprecated("use startWithLaunchOptions:engineOptions:applicationId:andEngineDelegate instead")));
-
 /**
  * @brief Application delegate item that communicates the application's launch and turns on ROXIMITY API functionality .
  * @details The startWithLaunchOption method is passed to the ROXIMITYEngine at the start of the application in the didFinishLaunchingWithOptions application delegate hook.
@@ -59,6 +44,20 @@
  */
 +(void) startWithLaunchOptions:(NSDictionary *)launchOptions engineOptions:(NSDictionary *)engineOptions applicationId:(NSString *)applicationId andEngineDelegate:(id<ROXIMITYEngineDelegate>)engineDelegate;
 
+/**
+ * @brief Method that allows for the updating of the configuration options that were used to start the roximity engine.
+ * @details The updateEngineOptions method can be passed to the ROXIMITYEngine at any time to update the engine option configurations.
+ * @param engineOptions dictionary of options to start the ROXIMITY Engine with
+ */
++(void) updateEngineOptions:(NSDictionary *)options;
+
+/**
+ * @brief Method that allows for the complete stopage of the  roximity engine.
+ * @details The fullStop method can be passed to the ROXIMITYEngine at any time to update the engine option configurations.
+ **/
++(void) fullStop;
+
++(NSString *)getSDKVersion;
 /**
  * @brief Application delegate item that communicates that the application is active.
  * @details The active method is passed to the ROXIMITYEngine whenever the application becomes active. A ROXIMITYEngine active call should be placed in the applicationDidBecomeActive delegate hook.
@@ -191,7 +190,9 @@
  * @params triggerType The type of trigger that instigated the action event (this is included when the devicehook delegate is notified of the event)
  * @returns eventLogged YES or NO if information provided was sufficient to log the response to an action event.
  */
-+(BOOL) registerActionResult:(NSString *)actionEvent forActionId:(NSString *)actionId withCorrelationId:(NSString *)correlationId triggerId:(NSString *)triggerId andTriggerType:(NSString *)triggerType;
+
+
++(BOOL) registerActionResult:(NSString *)actionEvent withEventInfo:(ROXEventInfo *)eventInfo;
 
 #pragma mark - State toggles
 
@@ -213,21 +214,21 @@
  */
 +(BOOL) isLocationActivated;
 
-/**
- * @brief Disables local notifications shown by the ROXIMITY SDK
- */
-+(void) disableLocalNotifications;
-
-/**
- * @brief Enables local notifications in the ROXIMITY SDK
- */
-+(void) enableLocalNotifications;
+///**
+// * @brief Disables local notifications shown by the ROXIMITY SDK
+// */
+//+(void) disableLocalNotifications;
+//
+///**
+// * @brief Enables local notifications in the ROXIMITY SDK
+// */
+//+(void) enableLocalNotifications;
 
 /**
  * @brief Returns whether or not local notifications are currently enabled
  * @returns locationsEnabled YES or NO
  */
-+(BOOL) isLocalNotificationEnabled;
+//+(BOOL) isLocalNotificationEnabled;
 
 #pragma mark - Metadata
 

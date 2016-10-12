@@ -10,6 +10,10 @@
 #import "ROXActionPresentationType.h"
 #import "ROXSignalEventType.h"
 
+extern NSString * const kROXActionEventUndeliverable;
+extern NSString * const kROXActionEventOpened;
+extern NSString * const kROXActionEventCancelled;
+
 @interface ROXIMITYAction : NSObject
 
 -(instancetype) initWithDictionary:(NSDictionary *)builderDict;
@@ -24,5 +28,6 @@
 -(NSTimeInterval)getFrequency;
 -(NSDate *)getActiveStartDate;
 -(NSDate *)getExpiresDate;
+-(NSString *)getCorrelationIdentifier;
 
 @end

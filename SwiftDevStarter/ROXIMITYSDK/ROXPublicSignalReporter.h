@@ -14,6 +14,7 @@
 
 @required
 - (NSDictionary *)toPublicSignalDictionary;
+- (BOOL) isApp;
 @end
 
 #endif /* ROXPublicSignalReporter_h */

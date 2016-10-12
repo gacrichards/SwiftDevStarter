@@ -23,11 +23,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate, ROXIMITYEngineDelegate {
         engineOptions[kROXEngineOptionsMuteLocationPermissionAlert] = false
         engineOptions[kROXEngineOptionsMuteNotificationPermissionAlert] = false
         engineOptions[kROXEngineOptionsMuteRequestAlerts] = false
-        engineOptions[kROXEngineOptionsReservedRegions] = 0
+        engineOptions[kROXEngineOptionsReservedBeaconRegions] = 0
+        engineOptions[kROXEngineOptionsReservedGeofenceRegions] = 0
         engineOptions[kROXEngineOptionsStartLocationDeactivated] = false
         
-        
-        ROXIMITYEngine.startWithLaunchOptions(launchOptions, engineOptions: engineOptions, applicationId: "YOUR_APP_ID", andEngineDelegate: self)
+        ROXIMITYEngine.startWithLaunchOptions(launchOptions, engineOptions: engineOptions, applicationId: "YOUR-APP-ID", andEngineDelegate: self)
         
         return true
     }

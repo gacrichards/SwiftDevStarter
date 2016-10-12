@@ -14,10 +14,11 @@
 
 @interface ROXEventInfo : NSObject
 
--(instancetype)initWithSignalDict:(id <ROXPublicSignalReporter>)signalReporter andActionDict:(id <ROXPublicActionReporter>)actionReporter;
+-(instancetype)initWithSignalDict:(id <ROXPublicSignalReporter>)signalReporter actionDict:(id <ROXPublicActionReporter>)actionReporter andEventLocation:(CLLocation *)location;
 
 -(ROXIMITYSignal *)getROXIMITYSignal;
 -(ROXIMITYAction *)getROXIMITYAction;
+-(CLLocation *) getEventLocation;
 -(NSTimeInterval)getTimestamp;
 
 

@@ -15,7 +15,9 @@
 
 #pragma mark - Engine Options
 
-extern NSString * const kROXEngineOptionsReservedRegions;
+//extern NSString * const kROXEngineOptionsReservedRegions;
+extern NSString * const kROXEngineOptionsReservedBeaconRegions;
+extern NSString * const kROXEngineOptionsReservedGeofenceRegions;
 extern NSString * const kROXEngineOptionsMuteBluetoothOffAlert;
 extern NSString * const kROXEngineOptionsMuteRequestAlerts;
 extern NSString * const kROXEngineOptionsMuteLocationPermissionAlert;
@@ -23,6 +25,7 @@ extern NSString * const kROXEngineOptionsMuteNotificationPermissionAlert;
 extern NSString * const kROXEngineOptionsStartLocationDeactivated;
 extern NSString * const kROXEngineOptionsDebugLogging;
 extern NSString * const kROXEngineOptionsVerboseLogging;
+extern NSString * const kROXEngineOptionsSilenceLogging;
 extern NSString * const kROXEngineOptionsUserTargetingLimited;
 
 #pragma mark - Notification Observer Constants
