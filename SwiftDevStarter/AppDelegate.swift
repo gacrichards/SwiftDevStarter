@@ -21,13 +21,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate, ROXIMITYEngineDelegate {
         engineOptions[kROXEngineOptionsUserTargetingLimited] = false
         engineOptions[kROXEngineOptionsMuteBluetoothOffAlert] = false
         engineOptions[kROXEngineOptionsMuteLocationPermissionAlert] = false
-        engineOptions[kROXEngineOptionsMuteNotificationPermissionAlert] = false
+        engineOptions[kROXEngineOptionsMuteNotificationPermissionAlert] = true
         engineOptions[kROXEngineOptionsMuteRequestAlerts] = false
         engineOptions[kROXEngineOptionsReservedBeaconRegions] = 0
         engineOptions[kROXEngineOptionsReservedGeofenceRegions] = 0
         engineOptions[kROXEngineOptionsStartLocationDeactivated] = false
         
-        ROXIMITYEngine.startWithLaunchOptions(launchOptions, engineOptions: engineOptions, applicationId: "YOUR-APP-ID", andEngineDelegate: self)
+        ROXIMITYEngine.startWithLaunchOptions(launchOptions, engineOptions: engineOptions, applicationId: "[YOUR_APP_ID]", andEngineDelegate: self)
         
         return true
     }

@@ -19,9 +19,11 @@
 	<key>CFBundleSignature</key>
 	<string>????</string>
 	<key>CFBundleVersion</key>
-	<string>1</string>
+	<string>5</string>
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
+	<key>NSBluetoothPeripheralUsageDescription</key>
+	<string>This app uses bluetooth to detect iBeacons to give you tailored content</string>
 	<key>NSLocationAlwaysUsageDescription</key>
 	<string>This application uses iBeacons to deliver unique, location-based experiences</string>
 	<key>UIBackgroundModes</key>

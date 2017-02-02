@@ -26,8 +26,17 @@ class SDKObserver: NSObject, ROXDeviceHookDelegate {
     
     
     func didReceiveROXIMITYEvent(event: ROXEventInfo!) {
+        if isWiFiSignalEvent(event){
+            return
+        }
         eventHistory.append(event)
         updateResponders()
+    }
+    
+    func isWiFiSignalEvent(event: ROXEventInfo)->Bool{
+        let action = event.getROXIMITYAction()
+        let signal = event.getROXIMITYSignal()
+        return action.getPresentationType() == .None && signal.getType() == .WiFi
     }
     
     func updateResponders(){
@@ -133,12 +142,12 @@ extension ROXEventInfo{
     
     private func createActionDrivenDetail1()->String{
         let action = self.getROXIMITYAction()
-        return "ACTION: " + action.getName()
+        return "ACTION: " + (action.getName() ?? "")
     }
     
     private func createSignalDrivenDetail1()->String{
         let signal = self.getROXIMITYSignal()
-        return "SIGNAL: "+signal.getName()
+        return "SIGNAL: " + signal.getName()
     }
     
     private func createActionDrivenDetail2()->String{
