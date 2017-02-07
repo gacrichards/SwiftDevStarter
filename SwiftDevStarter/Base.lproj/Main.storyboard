@@ -1,9 +1,12 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10117" systemVersion="15E65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="15F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
     <dependencies>
-        <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
         <!--View Controller-->
@@ -15,33 +18,42 @@
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="IYL-PZ-roz">
-                                <rect key="frame" x="20" y="28" width="560" height="564"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <rect key="frame" x="16" y="28" width="343" height="563"/>
+                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <connections>
                                     <outlet property="dataSource" destination="BYZ-38-t0r" id="vKx-Ft-8pd"/>
                                     <outlet property="delegate" destination="BYZ-38-t0r" id="pKY-0x-o88"/>
                                 </connections>
                             </tableView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Last Location Accuracy: 100-meters" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ntb-rk-CH1">
+                                <rect key="frame" x="49" y="628" width="277" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstAttribute="trailingMargin" secondItem="IYL-PZ-roz" secondAttribute="trailing" id="Auf-HE-tEM"/>
-                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="IYL-PZ-roz" secondAttribute="bottom" constant="8" id="BWZ-4T-oxH"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="IYL-PZ-roz" secondAttribute="bottom" constant="76" id="BWZ-4T-oxH"/>
+                            <constraint firstItem="ntb-rk-CH1" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="CY3-Vx-osN"/>
                             <constraint firstItem="IYL-PZ-roz" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="8" id="EXA-f8-LS5"/>
                             <constraint firstAttribute="leadingMargin" secondItem="IYL-PZ-roz" secondAttribute="leading" id="J6h-Od-Y32"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="ntb-rk-CH1" secondAttribute="bottom" constant="18" id="cjH-En-MJ6"/>
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="lastLocationAccLabel" destination="ntb-rk-CH1" id="3rQ-Qb-VoY"/>
                         <outlet property="roxEventsTable" destination="IYL-PZ-roz" id="IRp-Di-oDS"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="852" y="498"/>
+            <point key="canvasLocation" x="852" y="497.90104947526243"/>
         </scene>
     </scenes>
 </document>

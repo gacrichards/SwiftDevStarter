@@ -27,7 +27,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, ROXIMITYEngineDelegate {
         engineOptions[kROXEngineOptionsReservedGeofenceRegions] = 0
         engineOptions[kROXEngineOptionsStartLocationDeactivated] = false
         
-        ROXIMITYEngine.startWithLaunchOptions(launchOptions, engineOptions: engineOptions, applicationId: "[YOUR_APP_ID]", andEngineDelegate: self)
+        ROXIMITYEngine.startWithLaunchOptions(launchOptions, engineOptions: engineOptions, applicationId: "[APP ID HERE]", andEngineDelegate: self)
         
         return true
     }
