@@ -25,6 +25,7 @@ extern NSString * const kROXActionEventCancelled;
 -(NSString *)getMessage;
 -(NSString *)getUrl;
 -(NSSet *)getTags;
+-(NSDictionary *)getProperties;
 -(NSTimeInterval)getFrequency;
 -(NSDate *)getActiveStartDate;
 -(NSDate *)getExpiresDate;

@@ -26,17 +26,11 @@ class SDKObserver: NSObject, ROXDeviceHookDelegate {
     
     
     func didReceiveROXIMITYEvent(event: ROXEventInfo!) {
-        if isWiFiSignalEvent(event){
-            return
-        }
+        if event.hasDeviceSegment() {event.printDeviceSegmentDictionary()}
+        if event.isPlaceVerification(){ event.printPlaceProperties() }
+        if event.isWiFiSignalEvent(){return}
         eventHistory.append(event)
         updateResponders()
-    }
-    
-    func isWiFiSignalEvent(event: ROXEventInfo)->Bool{
-        let action = event.getROXIMITYAction()
-        let signal = event.getROXIMITYSignal()
-        return action.getPresentationType() == .None && signal.getType() == .WiFi
     }
     
     func updateResponders(){
@@ -63,6 +57,35 @@ extension ROXEventInfo{
     func isSignalDriven()->Bool{
         //Signal driven events are those that are not action driven
         return !isActionDriven()
+    }
+    
+    func isPlaceVerification()->Bool{
+        let action = self.getROXIMITYAction()
+        return action.getEventType() == .Place
+    }
+    
+    func printPlaceProperties(){
+        let action = self.getROXIMITYAction()
+        let properties = action.getProperties()
+        print("Place Properties: \(properties)")
+    }
+    
+    func hasDeviceSegment()->Bool{
+        let deviceSegmentObj = self.getROXIMITYDeviceSegment()
+        return deviceSegmentObj.getSegmentDictionary() != nil
+    }
+    
+    func printDeviceSegmentDictionary(){
+        let deviceSegmentObj = self.getROXIMITYDeviceSegment()
+        let segmentDesc = deviceSegmentObj.getSegmentDictionary()
+        guard(segmentDesc != nil)else{return}
+        print("Device Segment info: \(segmentDesc!)")
+    }
+    
+    func isWiFiSignalEvent()->Bool{
+        let action = self.getROXIMITYAction()
+        let signal = self.getROXIMITYSignal()
+        return action.getPresentationType() == .None && signal.getType() == .WiFi
     }
     
     //This will give me a top level description of the action that has taken place
