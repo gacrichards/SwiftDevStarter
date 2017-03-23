@@ -13,7 +13,7 @@
 #import "ROXIMITYAction.h"
 #import "ROXIMITYDeviceSegment.h"
 
-@interface ROXEventInfo : NSObject
+@interface ROXEventInfo : NSObject <NSSecureCoding>
 
 -(instancetype)initWithSignalDict:(id <ROXPublicSignalReporter>)signalReporter actionDict:(id <ROXPublicActionReporter>)actionReporter segmentDict:(NSDictionary *)segmentDict andEventLocation:(CLLocation *)location;
 
