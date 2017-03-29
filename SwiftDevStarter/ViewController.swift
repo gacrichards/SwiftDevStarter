@@ -16,7 +16,7 @@ class ViewController: UIViewController, EventHistoryUpdateResponder, UITableView
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        ROXIMITYEngine.setBeaconRangeDelegate(self, withUpdateInterval:kROXBeaconRangeUpdatesFastest)
+        ROXIMITYEngine.setBeaconRangeDelegate(self, with:kROXBeaconRangeUpdatesFastest)
         setROXEventManager()
         registerCustomTableCellComponents()
         // Do any additional setup after loading the view, typically from a nib.
@@ -27,20 +27,20 @@ class ViewController: UIViewController, EventHistoryUpdateResponder, UITableView
         // Dispose of any resources that can be recreated.
     }
     
-    func didUpdateBeaconRanges(rangedBeacons: [AnyObject]!) {
+    func didUpdateBeaconRanges(_ rangedBeacons: [Any]!) {
         print(rangedBeacons)
     }
     
     func setROXEventManager(){
-        let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
+        let appDelegate = UIApplication.shared.delegate as! AppDelegate
         roxEventManager = appDelegate.roxEventListener
         roxEventManager.addNewEventHistoryResponder(self)
     }
     
     func registerCustomTableCellComponents(){
-        self.roxEventsTable.registerClass(ROXEventTableViewCell.self, forCellReuseIdentifier: "EventTableCell")
-        self.roxEventsTable.registerNib(UINib(nibName: "ROXEventTableViewCell", bundle: nil), forCellReuseIdentifier: "EventTableCell")
-        self.roxEventsTable.separatorColor = UIColor.clearColor()
+        self.roxEventsTable.register(ROXEventTableViewCell.self, forCellReuseIdentifier: "EventTableCell")
+        self.roxEventsTable.register(UINib(nibName: "ROXEventTableViewCell", bundle: nil), forCellReuseIdentifier: "EventTableCell")
+        self.roxEventsTable.separatorColor = UIColor.clear
     }
     
     func didUpdateWithNewEvent() {
@@ -49,17 +49,17 @@ class ViewController: UIViewController, EventHistoryUpdateResponder, UITableView
     
     //MARK: TableView Methods
     
-    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int{
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int{
         return roxEventManager.eventHistory.count
     }
     
-    func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 100
     }
     
-    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell{
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell{
         
-        let cell = tableView.dequeueReusableCellWithIdentifier("EventTableCell", forIndexPath: indexPath) as! ROXEventTableViewCell
+        let cell = tableView.dequeueReusableCell(withIdentifier: "EventTableCell", for: indexPath) as! ROXEventTableViewCell
         
         let event = roxEventManager.eventHistory[indexPath.row]
         cell.setWithROXEventInfo(event)

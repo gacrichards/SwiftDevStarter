@@ -19,13 +19,13 @@ class SDKObserver: NSObject, ROXDeviceHookDelegate {
         ROXIMITYEngine.setDeviceHookDelegate(self)
     }
     
-    func addNewEventHistoryResponder(responder:EventHistoryUpdateResponder){
+    func addNewEventHistoryResponder(_ responder:EventHistoryUpdateResponder){
         eventHistoryUpdateResponders.append(responder)
         updateResponders()
     }
     
     
-    func didReceiveROXIMITYEvent(event: ROXEventInfo!) {
+    func didReceiveROXIMITYEvent(_ event: ROXEventInfo!) {
         if event.hasDeviceSegment() {event.printDeviceSegmentDictionary()}
         if event.isPlaceVerification(){ event.printPlaceProperties() }
         if event.isWiFiSignalEvent(){return}
@@ -34,7 +34,7 @@ class SDKObserver: NSObject, ROXDeviceHookDelegate {
     }
     
     func updateResponders(){
-        eventHistory.sortInPlace({$0.getTimestamp() > $1.getTimestamp()})
+        eventHistory.sort(by: {$0.getTimestamp() > $1.getTimestamp()})
         eventHistoryUpdateResponders.forEach({$0.didUpdateWithNewEvent()})
     }
 
@@ -47,7 +47,7 @@ extension ROXEventInfo{
     
     func isActionDriven()->Bool{
         //Action driven events will generally have a name associated with the action, where signal driven events will have annonymous action names
-        let action = self.getROXIMITYAction()
+        let action = self.getROXIMITYAction()!
         if let _ = action.getName(){
             return true
         }
@@ -60,24 +60,24 @@ extension ROXEventInfo{
     }
     
     func isPlaceVerification()->Bool{
-        let action = self.getROXIMITYAction()
-        return action.getEventType() == .Place
+        let action = self.getROXIMITYAction()!
+        return action.getEventType() == .place
     }
     
     func printPlaceProperties(){
-        let action = self.getROXIMITYAction()
+        let action = self.getROXIMITYAction()!
         let properties = action.getProperties()
-        print("Place Properties: \(properties)")
+        print("Place Properties: \(properties ?? [AnyHashable : Any]())")
     }
     
     func hasDeviceSegment()->Bool{
         let deviceSegmentObj = self.getROXIMITYDeviceSegment()
-        return deviceSegmentObj.getSegmentDictionary() != nil
+        return deviceSegmentObj?.getDictionary() != nil
     }
     
     func printDeviceSegmentDictionary(){
         let deviceSegmentObj = self.getROXIMITYDeviceSegment()
-        let segmentDesc = deviceSegmentObj.getSegmentDictionary()
+        let segmentDesc = deviceSegmentObj?.getDictionary()
         guard(segmentDesc != nil)else{return}
         print("Device Segment info: \(segmentDesc!)")
     }
@@ -85,7 +85,7 @@ extension ROXEventInfo{
     func isWiFiSignalEvent()->Bool{
         let action = self.getROXIMITYAction()
         let signal = self.getROXIMITYSignal()
-        return action.getPresentationType() == .None && signal.getType() == .WiFi
+        return action?.getPresentationType() == .none && signal?.getType() == .wiFi
     }
     
     //This will give me a top level description of the action that has taken place
@@ -117,13 +117,13 @@ extension ROXEventInfo{
     
     //This will give a formatted date from the event timestamp
     func getFormattedDateString()->String{
-        let formatter = NSDateFormatter()
-        formatter.dateStyle = .ShortStyle
-        formatter.timeStyle = .MediumStyle
+        let formatter = DateFormatter()
+        formatter.dateStyle = .short
+        formatter.timeStyle = .medium
         
-        let eventDate = NSDate.init(timeIntervalSince1970: self.getTimestamp())
+        let eventDate = Date.init(timeIntervalSince1970: self.getTimestamp())
         
-        return formatter.stringFromDate(eventDate)
+        return formatter.string(from: eventDate)
     }
     
     //This will give a color label for events
@@ -135,120 +135,120 @@ extension ROXEventInfo{
         }
     }
     
-    private func getActionColor()->UIColor{
-        let action = self.getROXIMITYAction()
+    fileprivate func getActionColor()->UIColor{
+        let action = self.getROXIMITYAction()!
         
         switch action.getPresentationType() {
-        case ROXActionPresentationType.PlaceVerified:
+        case ROXActionPresentationType.placeVerified:
             return ROXIMITYEventColors.cyanBlue()
         default:
             return ROXIMITYEventColors.mediumYellow()
         }
     }
     
-    private func getSignalColor()->UIColor{
-        let signal = self.getROXIMITYSignal()
+    fileprivate func getSignalColor()->UIColor{
+        let signal = self.getROXIMITYSignal()!
         switch signal.getType() {
-        case .Beacon:
+        case .beacon:
             return ROXIMITYEventColors.orange()
-        case .Geofence:
+        case .geofence:
             return ROXIMITYEventColors.red()
-        case .WiFi:
+        case .wiFi:
             return ROXIMITYEventColors.darkBlue()
-        case .Place:
+        case .place:
             return ROXIMITYEventColors.cyanBlue()
         default:
-            return UIColor.lightGrayColor()
+            return UIColor.lightGray
         }
         
     }
     
-    private func createActionDrivenDetail1()->String{
-        let action = self.getROXIMITYAction()
+    fileprivate func createActionDrivenDetail1()->String{
+        let action = self.getROXIMITYAction()!
         return "ACTION: " + (action.getName() ?? "")
     }
     
-    private func createSignalDrivenDetail1()->String{
-        let signal = self.getROXIMITYSignal()
+    fileprivate func createSignalDrivenDetail1()->String{
+        let signal = self.getROXIMITYSignal()!
         return "SIGNAL: " + signal.getName()
     }
     
-    private func createActionDrivenDetail2()->String{
+    fileprivate func createActionDrivenDetail2()->String{
         
-        let signal = self.getROXIMITYSignal()
+        let signal = self.getROXIMITYSignal()!
         let signalTypeString = signalEventTypeString(signal)
         let signalName = signal.getName() ?? ""
         return "TRIGGER: "+signalTypeString+" - "+signalName
 
     }
     
-    private func createSignalDrivenDetail2()->String{
-        let signal = self.getROXIMITYSignal()
-        let signalTags = signal.getTags()
+    fileprivate func createSignalDrivenDetail2()->String{
+        let signal = self.getROXIMITYSignal()!
+        let signalTags = signal.getTags()!
         if signalTags.count > 0{
-            return "TAGS: "+signalTags.map({"\($0)"}).joinWithSeparator(", ")
+            return "TAGS: "+signalTags.map({"\($0)"}).joined(separator: ", ")
         }
         return ""
     }
     
-    private func createActionDrivenDescription()->String{
-        let action = self.getROXIMITYAction()
+    fileprivate func createActionDrivenDescription()->String{
+        let action = self.getROXIMITYAction()!
         let eventType = actionEventTypeString(action)
         let eventPresentation = actionPresentationTypeString(action)
         return eventPresentation+" "+eventType
     }
     
-    private func createSignalDrivenDescription()->String{
-        let signal = self.getROXIMITYSignal()
-        let action = self.getROXIMITYAction()
+    fileprivate func createSignalDrivenDescription()->String{
+        let signal = self.getROXIMITYSignal()!
+        let action = self.getROXIMITYAction()!
         let signalType = signalEventTypeString(signal)
         let signalAction = actionEventTypeString(action)
         return signalType+" "+signalAction
     }
     
-    private func actionEventTypeString(action: ROXIMITYAction)->String{
+    fileprivate func actionEventTypeString(_ action: ROXIMITYAction)->String{
         switch action.getEventType() {
-        case ROXSignalEventType.Entry:
+        case ROXSignalEventType.entry:
             return "Entry"
-        case ROXSignalEventType.Exit:
+        case ROXSignalEventType.exit:
             return "Exit"
-        case ROXSignalEventType.Proximity:
+        case ROXSignalEventType.proximity:
             return "Proximity"
-        case ROXSignalEventType.Place:
+        case ROXSignalEventType.place:
             return "Verification"
         default:
             return ""
         }
     }
     
-    private func actionPresentationTypeString(action: ROXIMITYAction)->String{
+    fileprivate func actionPresentationTypeString(_ action: ROXIMITYAction)->String{
         switch action.getPresentationType() {
-        case ROXActionPresentationType.Notification:
+        case ROXActionPresentationType.notification:
             return "Notification"
-        case ROXActionPresentationType.Request:
+        case ROXActionPresentationType.request:
             return "Request"
-        case ROXActionPresentationType.Webview:
+        case ROXActionPresentationType.webview:
             return "Webview"
-        case ROXActionPresentationType.WebhookPosted:
+        case ROXActionPresentationType.webhookPosted:
             return "Webhook"
-        case ROXActionPresentationType.PlaceVerified:
+        case ROXActionPresentationType.placeVerified:
             return "Place"
         default:
             return ""
         }
     }
     
-    private func signalEventTypeString(signal: ROXIMITYSignal)->String{
+    fileprivate func signalEventTypeString(_ signal: ROXIMITYSignal)->String{
         switch signal.getType() {
-        case ROXSignalOriginType.Beacon:
+        case ROXSignalOriginType.beacon:
             return "Beacon"
-        case ROXSignalOriginType.Geofence:
+        case ROXSignalOriginType.geofence:
             return "Geofence"
-        case ROXSignalOriginType.Gps:
+        case ROXSignalOriginType.gps:
             return "User Location"
-        case ROXSignalOriginType.Place:
+        case ROXSignalOriginType.place:
             return "Place"
-        case ROXSignalOriginType.WiFi:
+        case ROXSignalOriginType.wiFi:
             return "WiFi"
         default:
             return ""

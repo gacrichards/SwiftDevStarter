@@ -22,12 +22,12 @@ class ROXEventTableViewCell: UITableViewCell {
         // Initialization code
     }
 
-    override func setSelected(selected: Bool, animated: Bool) {
+    override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
         // Configure the view for the selected state
     }
     
-    func setWithROXEventInfo(event:ROXEventInfo){
+    func setWithROXEventInfo(_ event:ROXEventInfo){
         self.topLevelTitle.text = event.getEventDescription()
         self.eventDetailLine1.text = event.getEventDetailDescription1()
         self.eventDetailLine2.text = event.getEventDetailDescription2()

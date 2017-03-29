@@ -231,7 +231,7 @@
 					7396BD191D077A700054786E = {
 						CreatedOnToolsVersion = 7.3.1;
 						DevelopmentTeam = M493PZRT9R;
-						LastSwiftMigration = 0800;
+						LastSwiftMigration = 0830;
 						SystemCapabilities = {
 							com.apple.BackgroundModes = {
 								enabled = 1;
@@ -241,7 +241,7 @@
 					7396BD2D1D077A710054786E = {
 						CreatedOnToolsVersion = 7.3.1;
 						DevelopmentTeam = M493PZRT9R;
-						LastSwiftMigration = 0800;
+						LastSwiftMigration = 0830;
 						TestTargetID = 7396BD191D077A700054786E;
 					};
 				};
@@ -442,7 +442,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.roximity.SwiftDevStarter;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "$(PROJECT_DIR)/SwiftDevStarter/SwiftDevStarter-Bridging-Header.h";
-				SWIFT_VERSION = 2.3;
+				SWIFT_VERSION = 3.0;
 			};
 			name = Debug;
 		};
@@ -460,7 +460,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.roximity.SwiftDevStarter;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "$(PROJECT_DIR)/SwiftDevStarter/SwiftDevStarter-Bridging-Header.h";
-				SWIFT_VERSION = 2.3;
+				SWIFT_VERSION = 3.0;
 			};
 			name = Release;
 		};
@@ -473,7 +473,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.roximity.SwiftDevStarterTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 2.3;
+				SWIFT_VERSION = 3.0;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/SwiftDevStarter.app/SwiftDevStarter";
 			};
 			name = Debug;
@@ -487,7 +487,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.roximity.SwiftDevStarterTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 2.3;
+				SWIFT_VERSION = 3.0;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/SwiftDevStarter.app/SwiftDevStarter";
 			};
 			name = Release;
